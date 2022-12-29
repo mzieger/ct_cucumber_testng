@@ -20,15 +20,17 @@ public class steps extends BaseClass {
 	public void setup() throws IOException {
 		System.out.println("*************Creating the driver***************");
 
-		
+		// replace access key 
 		String accessKey = "*************";
+		//replace url
+		String endpoint = "myEndpoint";
 	    DesiredCapabilities dc = new DesiredCapabilities();
 	    
 		dc.setCapability("accessKey", accessKey);
 		dc.setCapability("appiumVersion", "1.22.3");
 		dc.setCapability("deviceQuery", "@os='android' and @category='PHONE'");
 		dc.setCapability("browserName", "Chrome");
-		driver = new AndroidDriver(new URL("https://uscloud.experitest.com/wd/hub"), dc);
+		driver = new AndroidDriver(new URL(endpoint), dc);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
 
